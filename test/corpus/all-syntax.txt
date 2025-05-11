@@ -1,0 +1,111 @@
+===========
+All syntax
+===========
+
+foo :: 42;
+bar: Int = 4;
+
+# function declaration
+calc :: fun (~x: Int, ~y: Int) Int {
+    z :: x / y;
+    z
+};
+ 
+calc(foo, bar);
+
+add :: fun (~num: Int, to other_num: Int) Int {
+  num + other_num
+};
+
+add(3, to: 4);
+
+returns_unit :: fun () {
+  unit
+}
+
+---
+
+(source_file
+  (expression
+    (variable_declaration
+      (ident)
+      (expression
+        (int_literal))))
+  (expression
+    (variable_declaration
+      (ident)
+      (type
+        (ident))
+      (expression
+        (int_literal))))
+  (comment)
+  (expression
+    (variable_declaration
+      (ident)
+      (expression
+        (function_expression
+          (function_parameter
+            (ident)
+            (type
+              (ident)))
+          (function_parameter
+            (ident)
+            (type
+              (ident)))
+          (type
+            (ident))
+          (expression
+            (variable_declaration
+              (ident)
+              (expression
+                (infix_expression
+                  (expression
+                    (ident))
+                  (expression
+                    (ident))))))
+          (expression
+            (ident))))))
+  (expression
+    (function_call
+      (ident)
+      (expression
+        (ident))
+      (expression
+        (ident))))
+  (expression
+    (variable_declaration
+      (ident)
+      (expression
+        (function_expression
+          (function_parameter
+            (ident)
+            (type
+              (ident)))
+          (function_parameter
+            (ident)
+            (ident)
+            (type
+              (ident)))
+          (type
+            (ident))
+          (expression
+            (infix_expression
+              (expression
+                (ident))
+              (expression
+                (ident))))))))
+  (expression
+    (function_call
+      (ident)
+      (expression
+        (int_literal))
+      (ident)
+      (expression
+        (int_literal))))
+  (expression
+    (variable_declaration
+      (ident)
+      (expression
+        (function_expression
+          (expression
+            (unit)))))))
